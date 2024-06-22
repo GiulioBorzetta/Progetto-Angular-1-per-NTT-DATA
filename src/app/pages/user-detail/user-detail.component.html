@@ -1,0 +1,55 @@
+<div *ngIf="user">
+  <div class="container">
+    <div class="infoUser">
+      <h3>Name:</h3>
+      <p class="ml-5">{{ user.name }}</p>
+    </div>
+    <div class="infoUser">
+      <h3>Gender:</h3>
+      <p class="ml-5">{{ user.gender }}</p>
+    </div>
+    <div class="infoUser">
+      <h3>Email:</h3>
+      <p class="ml-5">{{ user.email }}</p>
+    </div>
+    <div class="infoUser">
+      <h3>ID:</h3>
+      <p class="ml-5">{{ user.id }}</p>
+    </div>
+
+    <app-create-post (postCreated)="loadPostsAndComments(user.id.toString())" [userId]="user.id"></app-create-post>
+
+    <div *ngIf="message" class="message-container">
+      <p [ngClass]="{'success-message': messageType === 'success', 'error-message': messageType === 'error'}">
+        {{ message }}
+      </p>
+    </div>
+
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let post of dataSourcePost.data" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>{{ post.title }}</mat-panel-title>
+          <mat-panel-description>{{ post.body }}</mat-panel-description>
+          <button mat-button (click)="deletePost(post.id)" color="warn">Delete</button>
+        </mat-expansion-panel-header>
+        <div *ngIf="post.comments && post.comments.length > 0">
+          <h4>Comments</h4>
+          <div *ngFor="let comment of post.comments">
+            <p class="black"><strong>{{ comment.name }}:</strong> {{ comment.body }}</p>
+          </div>
+        </div>
+        <div *ngIf="post.comments && post.comments.length === 0">
+          <p>No comments found.</p>
+        </div>
+        <app-create-comment [postId]="post.id" [userEmail]="user.email" [userName]="user.name" (commentCreated)="onCommentCreated($event, post.id)"></app-create-comment>
+      </mat-expansion-panel>
+    </mat-accordion>    
+
+    <button mat-raised-button color="primary" routerLink="/home" class="m10">Back</button>
+  </div>
+</div>
+
+<div *ngIf="!user" class="container">
+  <p>User not found.</p>
+  <button mat-raised-button color="primary" routerLink="/home" class="m10">Back</button>
+</div>

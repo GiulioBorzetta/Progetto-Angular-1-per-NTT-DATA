@@ -1,0 +1,30 @@
+.container {
+    background-color: #f0f0f0;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .inputComment {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  button[type="submit"] {
+    margin-top: 10px;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .inputComment {
+      margin-bottom: 10px;
+    }
+  
+    button[type="submit"] {
+      width: 100%;
+    }
+  }
+  
+  .black{
+    color: black;
+  }
+  

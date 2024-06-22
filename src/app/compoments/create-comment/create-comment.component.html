@@ -1,0 +1,12 @@
+<div class="container">
+  <h3 class="black">Create Comment</h3>
+  <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill" class="inputComment">
+      <mat-label>Body</mat-label>
+      <textarea matInput id="body" formControlName="body" required></textarea>
+    </mat-form-field>
+    
+    <button mat-raised-button color="primary" type="submit">Create Comment</button>
+  </form>
+  <p *ngIf="message">{{ message }}</p>
+</div>

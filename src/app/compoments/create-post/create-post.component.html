@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Do you want to create a post?</h2>
+
+  <form [formGroup]="postForm" (ngSubmit)="createPost()">
+    <mat-form-field class="inputPost">
+      <input matInput placeholder="User ID" formControlName="user_id" [value]="userId">
+    </mat-form-field>
+
+    <mat-form-field class="inputPost">
+      <input matInput placeholder="Title" formControlName="title">
+    </mat-form-field>
+
+    <mat-form-field class="inputPost">
+      <textarea matInput placeholder="Body" formControlName="body"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Create Post</button>
+  </form>
+
+  <div *ngIf="message" [ngClass]="{'success-message': messageType === 'success', 'error-message': messageType === 'error'}">
+    {{ message }}
+  </div>
+</div>

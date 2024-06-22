@@ -1,0 +1,94 @@
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  
+  .container {
+    background-color: #f0f0f0;
+    padding: 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+  }
+  
+  mat-accordion {
+    background-color: #f0f0f0;
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  mat-expansion-panel {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+  
+  mat-expansion-panel-header {
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #dddddd;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  mat-panel-title {
+    color: #333333;
+  }
+  
+  mat-panel-description {
+    color: #555555;
+  }
+  
+  .commentBody {
+    font-style: italic;
+  }
+  
+  mat-button {
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin: 4px;
+  }
+  
+  mat-button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .black {
+    color: #000000;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .buttons-container {
+      flex-direction: column;
+    }
+  
+    .buttons-container button {
+      width: 100%;
+      margin-bottom: 8px;
+    }
+  }
+  
+  .message-container {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .success-message {
+    color: green;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  .error-message {
+    color: red;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  

@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Who are you looking for?</h2>
+  <form (ngSubmit)="applyFilters()" class="containerFilter">
+    <div *ngFor="let field of filterFields" class="inputFilter">
+      <mat-form-field appearance="fill">
+        <mat-label>{{ field.label }}</mat-label>
+        <input matInput [(ngModel)]="filters[field.key]" [name]="field.key">
+      </mat-form-field>
+    </div>
+    <div class="buttonFilter">
+      <button mat-raised-button color="primary" type="submit">Apply Filters</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,48 @@
+.container {
+  background-color: #f0f0f0;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.formField {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+button[type="submit"] {
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .formField {
+    margin-bottom: 10px;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+  }
+}
+
+.message-container {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.success-message {
+  color: green;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+.error-message {
+  color: red;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 4px;
+}

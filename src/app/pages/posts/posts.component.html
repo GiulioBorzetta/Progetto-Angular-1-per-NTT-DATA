@@ -1,0 +1,57 @@
+<app-filter [filterFields]="filterFields" (filterChange)="applyFilters($event)"></app-filter>
+
+<app-create-post (postCreated)="loadPosts()"></app-create-post>
+
+<div class="buttons-container">
+  <button mat-button (click)="setPageSize(10)">
+    <mat-icon color="primary">filter_1</mat-icon> 10
+  </button>
+  <button mat-button (click)="setPageSize(50)">
+    <mat-icon color="primary">filter_5</mat-icon> 50
+  </button>
+  <button mat-button (click)="setPageSize(100)">
+    <mat-icon color="primary">filter_9_plus</mat-icon> 100
+  </button>
+</div>
+
+<mat-accordion class="container">
+  <mat-expansion-panel *ngFor="let post of dataSource.data" (opened)="loadComments(post.id)">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ post.id }}
+      </mat-panel-title>
+      <mat-panel-title>
+        {{ post.user_id }}
+      </mat-panel-title>
+      <mat-panel-title>
+        {{ post.title }}
+      </mat-panel-title>
+      <mat-panel-description class="commentBody">
+        {{ post.body }}
+      </mat-panel-description>
+      <mat-panel-description>
+        <button mat-button color="warn" (click)="deletePost(post.id)">Delete</button>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div *ngIf="comments[post.id] && comments[post.id].length > 0">
+      <div *ngFor="let comment of comments[post.id]">
+        <p class="black"><strong>{{ comment.name }}</strong></p>
+        <p class="black">{{ comment.body }}</p>
+        <hr>
+      </div>
+    </div>
+    <div *ngIf="comments[post.id] && comments[post.id].length === 0">
+      <p>No comments found.</p>
+    </div>
+    <div *ngIf="!comments[post.id]">
+      <p>Loading comments...</p>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<div class="message-container" *ngIf="message">
+  <p [ngClass]="{'success-message': messageType === 'success', 'error-message': messageType === 'error'}">
+    {{ message }}
+  </p>
+</div>

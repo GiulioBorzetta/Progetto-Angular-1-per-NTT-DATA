@@ -1,0 +1,56 @@
+<!-- header.component.html -->
+<ng-container *ngIf="isAuthenticated$ | async">
+  <mat-toolbar color="primary" class="mobile-toolbar" *ngIf="isMobile">
+    <mat-toolbar-row>
+      <span>Progetto Angular</span>
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu"
+      >
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/home">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+        </button>
+        <button mat-menu-item routerLink="/todos">
+          <mat-icon>T</mat-icon>
+          <span>Todos</span>
+        </button>
+        <button mat-menu-item routerLink="/posts">
+          <mat-icon>P</mat-icon>
+          <span>Posts</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-toolbar color="primary" class="desktop-toolbar" *ngIf="!isMobile">
+    <mat-toolbar-row>
+      <span>Progetto Angular</span>
+      <span class="spacer"></span>
+      <button mat-button routerLink="/home">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+      <button mat-button routerLink="/todos">
+        <mat-icon>T</mat-icon>
+        <span>Todos</span>
+      </button>
+      <button mat-button routerLink="/posts">
+        <mat-icon>P</mat-icon>
+        <span>Posts</span>
+      </button>
+      <button mat-button (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</ng-container>

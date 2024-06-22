@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Do you want to create a new user?</h2>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill" class="formField">
+      <mat-label>Name</mat-label>
+      <input matInput id="name" formControlName="name" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="formField">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" id="email" formControlName="email" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="formField">
+      <mat-label>Gender</mat-label>
+      <mat-select id="gender" formControlName="gender">
+        <mat-option value="male">Male</mat-option>
+        <mat-option value="female">Female</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="formField">
+      <mat-label>Status</mat-label>
+      <mat-select id="status" formControlName="status">
+        <mat-option value="active">Active</mat-option>
+        <mat-option value="inactive">Inactive</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Create User</button>
+  </form>
+
+  <div *ngIf="message" class="message-container">
+    <p [ngClass]="{'success-message': messageType === 'success', 'error-message': messageType === 'error'}">
+      {{ message }}
+    </p>
+  </div>
+</div>
