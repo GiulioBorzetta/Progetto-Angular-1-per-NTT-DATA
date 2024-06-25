@@ -1,4 +1,4 @@
-  <form
+<form
   (ngSubmit)="login()"
   *ngIf="!authService.isAuthenticated"
   #loginForm="ngForm"
@@ -23,6 +23,9 @@
   >
     Accedi
   </button>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
 </form>
 
 <app-home *ngIf="authService.isAuthenticated"></app-home>

@@ -5,8 +5,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { LoginComponent } from './login/login.component';
-import { SharedModule } from './compoments/shared.module';
+import { LoginComponent } from './pages/login/login.component';
+import { SharedModule } from './components/shared.module';
 import { HomeModule } from './pages/home/home.module';
 
 @NgModule({

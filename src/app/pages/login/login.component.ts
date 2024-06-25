@@ -1,33 +1,32 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
   token: string = '';
-
+  errorMessage: string | null = null;
 
   constructor(public authService: AuthService) { }
 
   login() {
     if (!this.token) {
-        console.error('Token non impostato o non valido');
-        return;
+      this.errorMessage = 'Token non impostato o non valido';
+      return;
     }
 
     this.authService.setToken(this.token);
 
     this.authService.getUsers().subscribe(
-      users => {},
+      users => {
+        this.errorMessage = null;
+      },
       error => {
-        console.error('Errore nella richiesta', error);
-        // Debug: Log dettagliato dell'errore
-        console.error('Dettagli errore:', error.message);
+        this.errorMessage = 'Errore nella richiesta: ' + error.message;
       }
     );
-}
-
+  }
 }
