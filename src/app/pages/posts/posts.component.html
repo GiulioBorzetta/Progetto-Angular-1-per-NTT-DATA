@@ -1,8 +1,11 @@
-<app-filter [filterFields]="filterFields" (filterChange)="applyFilters($event)"></app-filter>
+<app-filter
+  [filterFields]="filterFields"
+  (filterChange)="applyFilters($event)"
+></app-filter>
 
 <app-create-post (postCreated)="loadPosts()"></app-create-post>
 
-<div class="buttons-container">
+<div>
   <button mat-button (click)="setPageSize(10)">
     <mat-icon color="primary">filter_1</mat-icon> 10
   </button>
@@ -15,7 +18,10 @@
 </div>
 
 <mat-accordion class="container">
-  <mat-expansion-panel *ngFor="let post of dataSource.data" (opened)="loadComments(post.id)">
+  <mat-expansion-panel
+    *ngFor="let post of dataSource.data"
+    (opened)="loadComments(post.id)"
+  >
     <mat-expansion-panel-header>
       <mat-panel-title>
         {{ post.id }}
@@ -30,15 +36,19 @@
         {{ post.body }}
       </mat-panel-description>
       <mat-panel-description>
-        <button mat-button color="warn" (click)="deletePost(post.id)">Delete</button>
+        <button mat-button color="warn" (click)="deletePost(post.id)">
+          Delete
+        </button>
       </mat-panel-description>
     </mat-expansion-panel-header>
 
     <div *ngIf="comments[post.id] && comments[post.id].length > 0">
       <div *ngFor="let comment of comments[post.id]">
-        <p class="black"><strong>{{ comment.name }}</strong></p>
+        <p class="black">
+          <strong>{{ comment.name }}</strong>
+        </p>
         <p class="black">{{ comment.body }}</p>
-        <hr>
+        <hr />
       </div>
     </div>
     <div *ngIf="comments[post.id] && comments[post.id].length === 0">
@@ -51,7 +61,12 @@
 </mat-accordion>
 
 <div class="message-container" *ngIf="message">
-  <p [ngClass]="{'success-message': messageType === 'success', 'error-message': messageType === 'error'}">
+  <p
+    [ngClass]="{
+      'success-message': messageType === 'success',
+      'error-message': messageType === 'error'
+    }"
+  >
     {{ message }}
   </p>
 </div>
