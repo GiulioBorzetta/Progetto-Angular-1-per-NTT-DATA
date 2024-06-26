@@ -20,7 +20,6 @@ il sito è strutturato da 5 pagine:
 
 Non considerando la pagina di login, dove è presente l'inserimento del token, la prima pagina che si trova è la home.
 La homePage è strutturata in tre parti:
-<<<<<<< HEAD
 
 - filtro
 - creazione utente
@@ -47,7 +46,6 @@ Come prossima pagina è presente Todos, dove è struttara solo da due cose: quan
 
 Saltando il primo, perchè è stato già visto precedentemente, nell elenco è possibile notare: ID del todos, ID dell'utente, titolo, data, ora e status.
 
-=======
 - filtro
 - creazione utente
 - quantità di utenti trovati
@@ -72,23 +70,19 @@ Come prossima pagina è presente Todos, dove è struttara solo da due cose: quan
 
 Saltando il primo, perchè è stato già visto precedentemente, nell elenco è possibile notare: ID del todos, ID dell'utente, titolo, data, ora e status.
 
-
->>>>>>> 232066b45b5dae690b70de5659df3656c931f795
 ## Come posso fare il login al sito?
 
 Per poter fare il login è possibile andando sul sito di [Go Rest](https://gorest.co.in/), fare il login sul sito, andare su "Api Tokens" e copiare il token presente o generarlo uno nuovo.
 
 ## Come è costituito a livello di codice?
 
-<<<<<<< HEAD
 All interno del progetto è possibile notare 3 cartelle principali, "components", dove è presente i componenti del progetto, create-commnet, create-post, create-user, user, header ed è presente anche un file module, chiamato "shared" dove ha tutti gli elementi comuni dei componenti del progetto.
 
 La seconda cartella "pages", dove sono presenti le pagine del sito web, home, posts, todos, user-detail, login.
-=======
+
 All interno del progetto è possibile notare 3 cartelle principali, "components", dove è presente i componenti del progetto, create-commnet, create-post, create-user, user, header ed è presente anche un file module, chiamato "shared" dove ha tutti gli elementi comuni dei componenti del progetto. 
 
 La seconda cartella "pages", dove sono presenti le pagine del sito web, home, posts, todos, user-detail, login. 
->>>>>>> 232066b45b5dae690b70de5659df3656c931f795
 
 Per ultima abbiamo i "services", dove sono presenti due file, "auth.guard" con all'interno il codice che permette di "bloccare" il sito e riportarlo nella pagina di login, in caso l'utente provasse a cercare direttamente sulla barra di ricerca il link per andare nei posts, nella home o in qualsiasi altra pagina del web, mentre l altro file, "auth" ha tutte le principali funzioni che servono per il funzionamenti del sito. All interno del file è possibile notare che è suddiviso a gruppi, nella prima parte sono presenti le funzioni per acquisire il token per avere accesso al sito, nel secondo gruppo è presente tutta la parte per la creazione dell'utente, del post e del commento, nel terzo gruppo per eliminare i post e gli utenti, nel quarto gruppo per ottenere le informazioni per gli utenti, i post, i commenti, i todos attraverso le api, grazie anche alla verifica del token, il quale, in caso il token non fosse giusto, andrebe a mostrare un errore che non è stato possibile trovare le informazioni richieste, infine l'ultima funzione è per effettuare il logout del sito. Sempre all'interno della cartella è presente una sotto cartella chiamata "models", dove si trova il file "interface" ed all interno sono presenti le interfacce per le varie richieste al sito web di Go Rest.
 
