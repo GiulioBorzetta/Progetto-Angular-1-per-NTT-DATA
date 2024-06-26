@@ -23,9 +23,7 @@
   >
     Accedi
   </button>
-  <div *ngIf="errorMessage" class="error-message">
-    {{ errorMessage }}
-  </div>
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 </form>
 
 <app-home *ngIf="authService.isAuthenticated"></app-home>

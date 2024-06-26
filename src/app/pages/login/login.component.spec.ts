@@ -46,22 +46,21 @@ describe('LoginComponent', () => {
 
     expect(authServiceSpy.setToken).toHaveBeenCalledWith(token);
     expect(authServiceSpy.getUsers).toHaveBeenCalled();
+    expect(component.errorMessage).toBeNull();
   });
 
-  it('should log error if token is not set', () => {
-    spyOn(console, 'error');
+  it('should set errorMessage if token is not set', () => {
     component.token = '';
 
     component.login();
 
-    expect(console.error).toHaveBeenCalledWith('Token non impostato o non valido');
+    expect(component.errorMessage).toBe('Token non impostato o non valido');
     expect(authServiceSpy.setToken).not.toHaveBeenCalled();
     expect(authServiceSpy.getUsers).not.toHaveBeenCalled();
   });
 
-  it('should log error on failed getUsers call', () => {
+  it('should set errorMessage on failed getUsers call', () => {
     const error = { message: 'Errore di rete' };
-    spyOn(console, 'error');
     component.token = 'valid-token';
     authServiceSpy.getUsers.and.returnValue(throwError(error));
 
@@ -69,7 +68,6 @@ describe('LoginComponent', () => {
 
     expect(authServiceSpy.setToken).toHaveBeenCalledWith('valid-token');
     expect(authServiceSpy.getUsers).toHaveBeenCalled();
-    expect(console.error).toHaveBeenCalledWith('Errore nella richiesta', error);
-    expect(console.error).toHaveBeenCalledWith('Dettagli errore:', error.message);
+    expect(component.errorMessage).toBe('Errore nella richiesta: Errore di rete');
   });
 });
