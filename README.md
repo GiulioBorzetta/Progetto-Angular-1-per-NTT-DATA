@@ -76,11 +76,7 @@ Per poter fare il login è possibile andando sul sito di [Go Rest](https://gores
 
 ## Come è costituito a livello di codice?
 
-All interno del progetto è possibile notare 3 cartelle principali, "components", dove è presente i componenti del progetto, create-commnet, create-post, create-user, user, header ed è presente anche un file module, chiamato "shared" dove ha tutti gli elementi comuni dei componenti del progetto.
-
-La seconda cartella "pages", dove sono presenti le pagine del sito web, home, posts, todos, user-detail, login.
-
-All interno del progetto è possibile notare 3 cartelle principali, "components", dove è presente i componenti del progetto, create-commnet, create-post, create-user, user, header ed è presente anche un file module, chiamato "shared" dove ha tutti gli elementi comuni dei componenti del progetto. 
+All interno del progetto è possibile notare 3 cartelle principali, "components", dove sono presenti i componenti del progetto, create-commnet, create-post, create-user, user, header ed è presente anche un file module, chiamato "shared" dove ha tutti gli elementi comuni dei componenti del progetto. 
 
 La seconda cartella "pages", dove sono presenti le pagine del sito web, home, posts, todos, user-detail, login. 
 
